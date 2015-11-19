@@ -3,12 +3,9 @@
 	<head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content=" FILL ME IN ">
-	<meta name="author" content=" FILL ME IN ">
-	<title>Cameron Pitman: Portfolio</title>
-
-	<!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-	<!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
+	<meta name="description" content=" Mobile ready portfolio ">
+	<meta name="author" content=" Cameron Pittman ">
+	<title>Cameron Pittman: Portfolio</title>
 
 	<style>
 		html {
@@ -71,8 +68,22 @@
 		ga('create', 'UA-XXXX-Y');
 		ga('send', 'pageview');
 	</script>
-	<script src="http://www.google-analytics.com/analytics.js" async></script>
-	<script async src="js/perfmatters.js"></script>
+	<script async src="http://www.google-analytics.com/analytics.js"></script>
+	<script>// Measuring the Critical Rendering Path with Navigation Timing
+// https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp
+
+function logCRP() {
+	var t = window.performance.timing,
+	dcl = t.domContentLoadedEventStart - t.domLoading,
+	complete = t.domComplete - t.domLoading;
+	var stats = document.getElementById("crp-stats");
+	stats.textContent = 'DCL: ' + dcl + 'ms, onload: ' + complete + 'ms';
+}
+
+window.addEventListener("load", function(event) {
+	logCRP();
+});
+</script>
 	</head>
 
 	<body>
