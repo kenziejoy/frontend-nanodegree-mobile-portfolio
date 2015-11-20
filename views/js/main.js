@@ -503,9 +503,9 @@ function updatePositions() {
 	window.performance.mark("mark_start_frame");
 
 	var items = document.querySelectorAll('.mover');
-
+	// var phrase moved outside the for loop
+	var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
 	for (var i = 0; i < items.length; i++) {
-		var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
 	items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
 	}
 
@@ -524,8 +524,8 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-	var cols = 4;
-	var s = 40;
+	var cols = 6;
+	var s = 100;
 	for (var i = 0; i < 40; i++) {
 	var elem = document.createElement('img');
 	elem.className = 'mover';
