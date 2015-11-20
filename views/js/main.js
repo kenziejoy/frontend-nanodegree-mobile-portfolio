@@ -401,7 +401,7 @@ var resizePizzas = function(size) {
 	// Changes the value for the size of the pizza above the slider
 	function changeSliderLabel(size) {
 	switch(size) {
-			pizzaSizeName = document.getElementById("pizzaSize").innerHTML;
+		var	pizzaSizeName = document.getElementById("pizzaSize").innerHTML;
 		case "1":
 		pizzaSizeName = "Small";
 		return;
