@@ -404,6 +404,7 @@ var resizePizzas = function(size) {
 
 	// Changes the value for the size of the pizza above the slider
 	function changeSliderLabel(size) {
+		//var pizzaSizeName = document.getElementsByID('pizzaSize');
 	switch(size) {
 		case "1":
 		document.querySelector("#pizzaSize").innerHTML = "Small";
@@ -450,12 +451,11 @@ var resizePizzas = function(size) {
 
 	// Iterates through pizza elements on the page and changes their widths
 	function changePizzaSizes(size) {
-		var randomPizza = document.getElementsByClassName('randomPizzaContainer');
-
-	for (var i = 0; i < randomPizza.length; i++) {
-		var dx = determineDx(randomPizza)[i], size);
-		var newwidth = (randomPizza)[i].offsetWidth + dx) + 'px';
-		randomPizza [i].style.width = newwidth;
+		var randomPizzaContainer = document.getElementsByClassName('randomPizzaContainer');
+		var dx = determineDx(randomPizzaContainer)[i], size);
+		var newwidth = (randomPizzaContainer)[i].offsetWidth + dx) + 'px';
+	for (var i = 0; i < randomPizzaContainer.length; i++) {
+		randomPizzaContainer [i].style.width = newwidth;
 	}
 	}
 
@@ -506,9 +506,9 @@ function updatePositions() {
 //optimize selector
 	var items = document.getElementsByClassName('mover');
 //cache length variable outside for loop
-	var cachedLength = items.length
+	var cachedLength = items.length;
 //scrollTop variable outside for loop
-	var top = document.body.scrollTop
+	var top = document.body.scrollTop;
 	for (var i = 0; i < cachedLength; i++) {
 		var phase = Math.sin(( top / 1250) + (i % 5));
 	items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
