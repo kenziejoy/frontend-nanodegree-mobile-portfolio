@@ -14,4 +14,4 @@ I made the following improvements
 
 * Reduced the number of pizzas created from 200 to 40 and the number of columns to 6
 * In the UpdatePositions function I changed the select all to get elements by class name and took a major calculation out of the interior function scope.
-* I created an outside variable to ease calculations in the change pizza size and the change pizza slider functions.
+* I created an outside variable to ease calculations in the change pizza size
