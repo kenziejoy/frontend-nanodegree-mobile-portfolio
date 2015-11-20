@@ -501,12 +501,15 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
 	frame++;
 	window.performance.mark("mark_start_frame");
-
-	var items = document.querySelectorAll('.mover');
-	// var phrase moved outside the for loop
-
-	for (var i = 0; i < items.length; i++) {
-		var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+//optimize selector
+//	var items = document.querySelectorAll('.mover');
+	var items = document.getElementsByClassName('mover');
+//cache length variable outside for loop
+	var cachedLength = items.length
+//scrollTop variable outside for loop
+	var top = document.body.scrollTop
+	for (var i = 0; i < cachedLength; i++) {
+		var phase = Math.sin(( top / 1250) + (i % 5));
 	items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
 	}
 
