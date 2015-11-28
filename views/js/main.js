@@ -505,9 +505,10 @@ function updatePositions() {
 // changed select all to get elements by class name and moved scroll variable outside the for loop
 	var items = document.getElementsByClassName("mover");
 	var scrollTopDoc = document.body.scrollTop / 1250;
+	var phase;
 
 	for (var i = 0; i < items.length; i++) {
-	var phase = Math.sin( scrollTopDoc + (i % 5));
+	phase = Math.sin( scrollTopDoc + (i % 5));
 	items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
 	}
 
