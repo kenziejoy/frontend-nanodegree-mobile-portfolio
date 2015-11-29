@@ -1,3 +1,6 @@
+//By MacKenzie Rawcliffe, 11/2015
+//This code is meant to render a sufficient number of pizzas at 60fps or better.
+
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
@@ -521,14 +524,15 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
-//moved elem and movingPizzas variables outside for loop. Changed number of pizzas created.
+//moved elem and movingPizzas variables outside function.
 //calculate number of pizzas needed with numberofPizzas variable
-document.addEventListener('DOMContentLoaded', function() {
 	var cols = 8;
 	var s = 256;
-	var numberOfPizzas = (screen.height/256) * cols;
+	var numberOfPizzas = (window.screen.height/s) * cols;
 	var elem;
 	var movingPizzas = document.getElementById('movingPizzas1');
+
+document.addEventListener('DOMContentLoaded', function() {
 	for (var i = 0; i < numberOfPizzas; i++) {
 	elem = document.createElement('img');
 	elem.className = 'mover';
