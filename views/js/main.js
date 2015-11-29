@@ -526,7 +526,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
 	var cols = 8;
 	var s = 256;
-	var numberOfPizzas = (screen.height/256) * cols);
+	var numberOfPizzas = (screen.height/256) * cols;
 	var elem;
 	var movingPizzas = document.getElementById('movingPizzas1');
 	for (var i = 0; i < numberOfPizzas; i++) {
