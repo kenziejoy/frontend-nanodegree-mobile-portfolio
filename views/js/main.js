@@ -498,7 +498,7 @@ function updatePositions() {
 	phase = Math.sin( scrollTopDoc + (i % 5));
 	//change from style.left to transform
 		//items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-		items[i].style.transform = 'translateX'+ 100 * phase + 'px';
+		items[i].style.transform = 'translateX(' + (100*phase) + 'px)';
 	}
 
 	// User Timing API to the rescue again. Seriously, it's worth learning.
