@@ -496,7 +496,9 @@ function updatePositions() {
 
 	for (var i = 0; i < itemsLength; i++) {
 	phase = Math.sin( scrollTopDoc + (i % 5));
-	items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+	//change from style.left to transform
+		//items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+		items[i].style.transform = 'translateX'+ 100 * phase + 'px';
 	}
 
 	// User Timing API to the rescue again. Seriously, it's worth learning.
@@ -518,7 +520,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var s = 256;
 	var elem;
 	var movingPizzas = document.getElementById('movingPizzas1');
-	for (var i = 0; i < 20; i++) {
+	for (var i = 0; i < 24; i++) {
 	elem = document.createElement('img');
 	elem.className = 'mover';
 	elem.src = "images/pizza.png";
