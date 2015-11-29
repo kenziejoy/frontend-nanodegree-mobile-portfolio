@@ -1,3 +1,6 @@
+//By MacKenzie Rawcliffe, 11/2015
+//This code is meant to render a sufficient number of pizzas at 60fps or better.
+
 // As you may have realized, this website randomly generates pizzas.
 // Here are arrays of all possible pizza ingredients.
 var pizzaIngredients = {};
@@ -381,6 +384,7 @@ var pizzaElementGenerator = function(i) {
 };
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+
 var resizePizzas = function(size) {
 	window.performance.mark("mark_start_resize");   // User Timing API function
 
@@ -405,6 +409,7 @@ var resizePizzas = function(size) {
 	changeSliderLabel(size);
 
 	// Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
+
 	function determineDx (elem, size) {
 	var oldWidth = elem.offsetWidth;
 	var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
@@ -431,6 +436,7 @@ var resizePizzas = function(size) {
 	}
 
 	//changePizzaSizes Variables - changed [i] to [0]
+	//declared randomPizzaCon and randomPizzaConLength, used getElementsByClass. Moved randomPizzaCon, randomPizzaConLength, dx and newwidth outside the function.
 
 	var randomPizzaCon = document.getElementsByClassName ("randomPizzaContainer");
 	var randomPizzaConLength = randomPizzaCon.length;
@@ -456,8 +462,11 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+//moved PizzasDiv variable outside the for loop
+
+var pizzasDiv = document.getElementById("randomPizzas");
+
 for (var i = 2; i < 100; i++) {
-	var pizzasDiv = document.getElementById("randomPizzas");
 	pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -488,7 +497,9 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
 	frame++;
 	window.performance.mark("mark_start_frame");
-// changed select all to get elements by class name and moved scroll variable outside the for loop
+
+// changed select all to get elements by class name and moved scroll, items, phase and itemsLength variable outside the for loop
+
 	var items = document.getElementsByClassName("mover");
 	var scrollTopDoc = document.body.scrollTop / 1250;
 	var phase;
@@ -513,12 +524,16 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
-document.addEventListener('DOMContentLoaded', function() {
+//moved elem and movingPizzas variables outside function.
+//calculate number of pizzas needed with numberofPizzas variable
 	var cols = 8;
 	var s = 256;
+	var numberOfPizzas = (window.screen.height/s) * cols;
 	var elem;
 	var movingPizzas = document.getElementById('movingPizzas1');
-	for (var i = 0; i < 20; i++) {
+
+document.addEventListener('DOMContentLoaded', function() {
+	for (var i = 0; i < numberOfPizzas; i++) {
 	elem = document.createElement('img');
 	elem.className = 'mover';
 	elem.src = "images/pizza.png";
