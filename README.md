@@ -1,3 +1,7 @@
+Visit http://kenziejoy.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html to see a live version of the site.
+
+You can test the site speed of index.html using the link above.
+
 Index.html is optimized to above 90 for both mobile and web
 
 I made the following improvements:
@@ -12,6 +16,6 @@ Main.js in the pizza view is mostly to 60fps I think - I'm not sure where to go 
 
 I made the following improvements
 
-* Reduced the number of pizzas created from 200 to 40 and the number of columns to 6
-* In the UpdatePositions function I changed the select all to get elements by class name and took a major calculation out of the interior function scope.
-* I created an outside variable to ease calculations in the change pizza size
+* Reduced the number of pizzas created from 200 to 40
+* In the UpdatePositions function I changed the select all to get elements by class name and took a major calculation out of the interior function scope. I also moved several variables out of the loop
+* I created an outside variable to ease calculations in the change pizza size. I also moved some variables out of the loop
